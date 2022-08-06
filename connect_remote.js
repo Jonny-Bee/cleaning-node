@@ -89,7 +89,7 @@ const update_location = (res,field,value,id) =>{
 }
 
 
- app.listen(8080,() =>{});
+ app.listen(process.env.PORT || 3000),() =>{});
 
  con.connect(function(err) {
     if (err) throw err;
