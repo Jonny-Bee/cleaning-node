@@ -1,0 +1,65 @@
+915,SLOW COOKED,4,Chilled                            
+27,PREPACKED FRESH FISH,6,Chilled                            
+284,FOOD TO GO DRINKS,16,Chilled                            
+3,BACON,6,Chilled                            
+36,FRESH MEAT - BEEF,6,Chilled                            
+37,FRESH MEAT - LAMB,6,Chilled                            
+38,FRESH MEAT - PORK,6,Chilled                            
+39,FRESH MEAT - B.B.Q,6,Chilled                            
+41,READY TO COOK,6,Chilled                            
+47,SAUSAGES,6,Chilled                            
+50,VEGETARIAN,16,Chilled                            
+51,DRESSED SALADS & COLESLAW,16,Chilled                            
+53,VEGAN,16,Chilled                            
+54,COOKED MEATS & POULTRY,16,Chilled                            
+55,CONTINENTAL MEAT STAND,16,Chilled                            
+60,SMOKED SALMON,6,Chilled                            
+62,FRESH KOSHER,16,Chilled                            
+63,WORLD DELI,16,Chilled                            
+64,PREPACKED DELICATESSEN,16,Chilled                            
+65,BUTTER & FATS,16,Chilled                            
+66,PREPACKED CHEESE,16,Chilled                            
+88,PATISSERIE (CHILLED),16,Chilled                            
+32,IMPULSE ICE CREAM,16,Frozen                             
+33,ICE CREAM,16,Frozen                             
+40,PERFECTLY FROZEN,16,Frozen                             
+42,FROZEN FREE FROM,16,Frozen                             
+44,FROZEN MEAT & POULTRY,16,Frozen                             
+458,FROZEN PET FOOD,16,Frozen                             
+58,FROZEN KOSHER,16,Frozen                             
+61,FROZEN VEGETARIAN,16,Frozen                             
+67,FROZEN FISH PRODUCTS,16,Frozen                             
+68,FROZEN VEGETABLES,16,Frozen                             
+69,FROZEN MEAL SOLUTIONS,16,Frozen                             
+70,FROZEN DESSERTS,16,Frozen                             
+84,VIENNOISSERIE,16,Frozen                             
+209,LOCAL & REGIONAL PRODUCE,16,FRV
+210,POTATOES,8,FRV
+211,ROOT VEGETABLES,8,FRV
+212,GREEN VEGETABLES,16,FRV
+213,SPECIALITY VEGETABLES,16,FRV
+214,MUSHROOMS,8,FRV
+215,FRESH HERBS & SPICES,8,FRV
+217,SALADS,16,FRV
+218,LEAF SALADS,16,FRV
+219,TOMATOES,16,FRV
+223,PREPARED PRODUCE,16,FRV
+224,Chilled Prepared Fruit,16,FRV
+224,Convenience Chilled Fruit,16,FRV
+226,Conv  Veg & Salads,16,FRV
+226,Conv Veg & Salads,16,FRV
+227,APPLES & PEARS,8,FRV
+228,CITRUS FRUIT,8,FRV
+229,SOFT FRUIT,16,FRV
+230,PERFECTLY RIPE,16,FRV
+231,GRAPES,16,FRV
+232,EXOTIC FRUIT,16,FRV
+233,STONE FRUIT,16,FRV
+234,BANANAS,8,FRV
+235,NUTS IN SHELLS,8,FRV
+236,WAITROSE LOVE LIFE FRV,8,FRV
+246,AVOCADOS,16,FRV
+222,ORGANIC SALADS,16,FRV                      
+220,ORGANIC FRUIT,8,FRV                       
+216,MELONS AND PINEAPPLES,8,FRV                                
+221,ORGANIC VEGETABLES,8,FRV                                
