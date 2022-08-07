@@ -45,6 +45,11 @@ const con = mysql.createConnection({
         get_locations(res,request.query.section);
         
     })
+    app.get('/store/',(request,res) =>{
+        res.set('Access-Control-Allow-Origin', '*');
+        get_store(res);
+        
+    })
 
     app.get('/location/insert/',(request,res) =>{
 		res.set('Access-Control-Allow-Origin', '*');
@@ -114,6 +119,12 @@ const update_location = (res,field,value,id) =>{
 
  const get_locations = (onComplete,section) =>{
     con.query(`SELECT * FROM location JOIN layout WHERE layout.section = '${section}' AND location.layout_id = layout.id ORDER BY location.bay_id`, function (err, result, fields) {
+        if (err) throw err;
+        onComplete.send(result)
+      });
+ }
+const get_store = (onComplete) =>{
+    con.query(`SELECT * FROM location JOIN layout WHERE location.layout_id = layout.id ORDER BY location.bay_id`, function (err, result, fields) {
         if (err) throw err;
         onComplete.send(result)
       });
