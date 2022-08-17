@@ -86,17 +86,17 @@ const handleLogin = (req,res) =>{
       {
         var hash = crypto.createHash('md5').update(result.store_number + secret).digest('hex');
         var rslt = {user_name:result.user_name,store_number:result.store_number,hash:hash};
-        onComplete.send(rslt)
+        res.send(rslt)
       }
       else{
         var rslt = {msg:'bad_pass'};
-        onComplete.send(result);
+        res.send(result);
       }
     }
     else
     {
         var rslt = {msg:'no_user'};
-        onComplete.send(result);
+        res.send(result);
     }
     
   });
