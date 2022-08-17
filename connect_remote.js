@@ -82,11 +82,11 @@ const handleLogin = (req,res) =>{
     if (err) throw err;
     if(result.length > 0)
     {
-	console.log(result.pass_word + ' = ' + req.query.pass_word);
-      if(result.pass_word === req.query.pass_word)
+	console.log(result[pass_word] + ' = ' + req.query.pass_word);
+      if(result[pass_word] === req.query.pass_word)
       {
         var hash = crypto.createHash('md5').update(result.store_number + secret).digest('hex');
-        var rslt = {user_name:result.user_name,store_number:result.store_number,hash:hash};
+        var rslt = {user_name:result[user_name],store_number:result[store_number],hash:hash};
         res.send(rslt)
       }
       else{
