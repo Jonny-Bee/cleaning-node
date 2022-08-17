@@ -7,7 +7,14 @@ const secret = 'jpbcleaning';
 
 
 
+const check_sig = ( hash, store_number ) =>{
 
+	var hashr = crypto.createHash('md5').update(store_number + secret).digest('hex');
+	if(hashr === hash)
+		return true;
+	return false;
+
+}
 
 const con = mysql.createConnection({
     host: "oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
@@ -15,9 +22,10 @@ const con = mysql.createConnection({
     password: "ycmvbb6qwdhpkgrz",
     database : 'hcsmo7sbmn8rvyn8'
   });
-
+	// allow all
     app.get('/layouts/',(request,res) =>{
 		res.set('Access-Control-Allow-Origin', '*');
+		
         if(request.query.section)
             get_layouts_section(res,request.query.section);
         else
@@ -27,6 +35,11 @@ const con = mysql.createConnection({
 	
 	 app.get('/layouts/update/',(request,res) =>{
 		res.set('Access-Control-Allow-Origin', '*');
+		if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}
         update_layout(res,request);
         //res.send(get_layouts());
     })
@@ -44,17 +57,32 @@ const con = mysql.createConnection({
  }
     app.get('/location/',(request,res) =>{
         res.set('Access-Control-Allow-Origin', '*');
+		if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}
         get_locations(res,request.query.section);
         
     })
     app.get('/store/',(request,res) =>{
         res.set('Access-Control-Allow-Origin', '*');
+		if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}
         get_store(res);
         
     })
 
     app.get('/location/insert/',(request,res) =>{
 		res.set('Access-Control-Allow-Origin', '*');
+		if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}
         if(request.query.date)
             create_location(res,request.query.layout,request.query.bay,request.query.date);
         else
@@ -62,6 +90,11 @@ const con = mysql.createConnection({
     })
 
     app.get('/location/update/',(request,res) =>{
+		if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}
         res.set('Access-Control-Allow-Origin', '*');
         update_location(res,request.query.field,request.query.value,request.query.bay_id);
         
@@ -165,14 +198,20 @@ const get_store = (onComplete) =>{
         onComplete.send(result)
       });
  }
- app.get('/weeks/',(request,res) =>{
+ app.get('/weeks/',(res) =>{
     res.set('Access-Control-Allow-Origin', '*');
+	
     get_weeks(res);
     
 })
 
 app.get('/weeks/insert/',(request,res) =>{
-    res.set('Access-Control-Allow-Origin', '*');  
+    res.set('Access-Control-Allow-Origin', '*');
+	if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}	
     insert_week(res,request);
     
 })
@@ -203,6 +242,11 @@ app.get('/weeks/insert/',(request,res) =>{
  }
  app.get('/weeks/update/',(request,res) =>{
    res.set('Access-Control-Allow-Origin', '*'); 
+   if(!check_sig(request.query.hash, request.query.store_number)
+		{
+			res.send([]);
+			return;
+		}
    update_week(res,request);
     
 })
