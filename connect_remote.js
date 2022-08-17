@@ -82,6 +82,7 @@ const handleLogin = (req,res) =>{
     if (err) throw err;
     if(result.length > 0)
     {
+	console.log(result.pass_word + ' = ' + req.query.pass_word);
       if(result.pass_word === req.query.pass_word)
       {
         var hash = crypto.createHash('md5').update(result.store_number + secret).digest('hex');
