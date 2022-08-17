@@ -2,6 +2,8 @@ var mysql = require('mysql');
 var fs = require('fs');
 const express = require('express');
 const app = express();
+const crypto = require('crypto');
+const secret = 'jpbcleaning';
 
 
 
@@ -64,9 +66,42 @@ const con = mysql.createConnection({
         update_location(res,request.query.field,request.query.value,request.query.bay_id);
         
     })
+
+   
   con.on('error', function() {
     console.log('error')
   });
+
+app.post('/login/',(request,res) =>{
+  res.set('Access-Control-Allow-Origin', '*');
+  handleLogin(request,res);
+})
+
+const handleLogin = (req,res) =>{
+  con.query(`SELECT * FROM w_users WHERE user_name = '${req.query.user_name}'`, function (err, result, fields) {
+    if (err) throw err;
+    if(result.length > 0)
+    {
+      if(result.pass_word === req.query.pass_word)
+      {
+        var hash = crypto.createHash('md5').update(result.store_number + secret).digest('hex');
+        var rslt = {user_name:result.user_name,store_number:result.store_number,hash:hash};
+        onComplete.send(rslt)
+      }
+      else{
+        var rslt = {msg:'bad_pass'};
+        onComplete.send(result);
+      }
+    }
+    else
+    {
+        var rslt = {msg:'no_user'};
+        onComplete.send(result);
+    }
+    
+  });
+}
+
 
 const create_location = (res,layoutid,bay,lstDate) =>{
     let sql;
