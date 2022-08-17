@@ -105,7 +105,7 @@ const con = mysql.createConnection({
     console.log('error')
   });
 
-app.post('/login/',(request,res) =>{
+app.get('/login/',(request,res) =>{
   res.set('Access-Control-Allow-Origin', '*');
   handleLogin(request,res);
 })
