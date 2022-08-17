@@ -90,13 +90,13 @@ const handleLogin = (req,res) =>{
       }
       else{
         var rslt = {msg:'bad_pass'};
-        res.send(result);
+        res.send(rslt);
       }
     }
     else
     {
         var rslt = {msg:'no_user'};
-        res.send(result);
+        res.send(rslt);
     }
     
   });
