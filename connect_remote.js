@@ -35,7 +35,7 @@ const con = mysql.createConnection({
 	
 	 app.get('/layouts/update/',(request,res) =>{
 		res.set('Access-Control-Allow-Origin', '*');
-		if(!check_sig(request.query.hash, request.query.store_number)
+		if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
@@ -57,7 +57,7 @@ const con = mysql.createConnection({
  }
     app.get('/location/',(request,res) =>{
         res.set('Access-Control-Allow-Origin', '*');
-		if(!check_sig(request.query.hash, request.query.store_number)
+		if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
@@ -67,7 +67,7 @@ const con = mysql.createConnection({
     })
     app.get('/store/',(request,res) =>{
         res.set('Access-Control-Allow-Origin', '*');
-		if(!check_sig(request.query.hash, request.query.store_number)
+		if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
@@ -78,7 +78,7 @@ const con = mysql.createConnection({
 
     app.get('/location/insert/',(request,res) =>{
 		res.set('Access-Control-Allow-Origin', '*');
-		if(!check_sig(request.query.hash, request.query.store_number)
+		if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
@@ -90,7 +90,7 @@ const con = mysql.createConnection({
     })
 
     app.get('/location/update/',(request,res) =>{
-		if(!check_sig(request.query.hash, request.query.store_number)
+		if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
@@ -207,7 +207,7 @@ const get_store = (onComplete) =>{
 
 app.get('/weeks/insert/',(request,res) =>{
     res.set('Access-Control-Allow-Origin', '*');
-	if(!check_sig(request.query.hash, request.query.store_number)
+	if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
@@ -242,7 +242,7 @@ app.get('/weeks/insert/',(request,res) =>{
  }
  app.get('/weeks/update/',(request,res) =>{
    res.set('Access-Control-Allow-Origin', '*'); 
-   if(!check_sig(request.query.hash, request.query.store_number)
+   if(!check_sig(request.query.hash, request.query.store_number))
 		{
 			res.send([]);
 			return;
