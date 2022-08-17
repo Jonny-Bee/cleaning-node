@@ -198,7 +198,8 @@ const get_store = (onComplete) =>{
         onComplete.send(result)
       });
  }
- app.get('/weeks/',(res) =>{
+ app.get('/weeks/',(req,res) =>{
+	 
     res.set('Access-Control-Allow-Origin', '*');
 	
     get_weeks(res);
